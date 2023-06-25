@@ -1,0 +1,246 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+    <changeSet id="1671007579797-1" author="User (generated)">
+        <createTable tableName="cars">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="cars_pkey"/>
+            </column>
+            <column defaultValueBoolean="true" name="active" type="BOOLEAN"/>
+            <column name="created_date" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="last_modified_date" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="brand" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="gearbox" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="model" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="category_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet id="1671007579797-2" author="User (generated)">
+        <createTable tableName="categories">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="categories_pkey"/>
+            </column>
+            <column defaultValueBoolean="true" name="active" type="BOOLEAN"/>
+            <column name="created_date" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="last_modified_date" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="category" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet id="1671007579797-3" author="User (generated)">
+        <createTable tableName="courses">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="courses_pkey"/>
+            </column>
+            <column defaultValueBoolean="true" name="active" type="BOOLEAN"/>
+            <column name="created_date" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="last_modified_date" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="category" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="education_form" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="experience" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="gearbox" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="payment" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="group_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="practical_teacher_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="studying_category_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet id="1671007579797-4" author="User (generated)">
+        <createTable tableName="groups">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="groups_pkey"/>
+            </column>
+            <column defaultValueBoolean="true" name="active" type="BOOLEAN"/>
+            <column name="created_date" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="last_modified_date" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="theory_teacher_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet id="1671007579797-5" author="User (generated)">
+        <createTable tableName="practical_teachers">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="practical_teachers_pkey"/>
+            </column>
+            <column defaultValueBoolean="true" name="active" type="BOOLEAN"/>
+            <column name="created_date" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="last_modified_date" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="surname" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet id="1671007579797-6" author="User (generated)">
+        <createTable tableName="practical_teachers_cars">
+            <column name="practical_teacher_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="car_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet id="1671007579797-7" author="User (generated)">
+        <createTable tableName="practical_teachers_categories">
+            <column name="practical_teacher_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="category_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet id="1671007579797-8" author="User (generated)">
+        <createTable tableName="students">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="students_pkey"/>
+            </column>
+            <column defaultValueBoolean="true" name="active" type="BOOLEAN"/>
+            <column name="created_date" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="last_modified_date" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="age" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="surname" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet id="1671007579797-9" author="User (generated)">
+        <createTable tableName="students_categories">
+            <column name="student_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="category_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet id="1671007579797-10" author="User (generated)">
+        <createTable tableName="students_courses">
+            <column name="student_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="course_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet id="1671007579797-11" author="User (generated)">
+        <createTable tableName="theory_teachers">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="theory_teachers_pkey"/>
+            </column>
+            <column defaultValueBoolean="true" name="active" type="BOOLEAN"/>
+            <column name="created_date" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="last_modified_date" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="surname" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet id="1671007579797-12" author="User (generated)">
+        <addForeignKeyConstraint baseColumnNames="student_id" baseTableName="students_categories"
+                                 constraintName="fk2ntwtiikrjqypkhh53pqxn4i6" onDelete="NO ACTION" onUpdate="NO ACTION"
+                                 referencedColumnNames="id" referencedTableName="students"/>
+    </changeSet>
+    <changeSet id="1671007579797-13" author="User (generated)">
+        <addForeignKeyConstraint baseColumnNames="category_id" baseTableName="cars"
+                                 constraintName="fk310labqcoawyj05t4gvvfjbg9" onDelete="NO ACTION" onUpdate="NO ACTION"
+                                 referencedColumnNames="id" referencedTableName="categories"/>
+    </changeSet>
+    <changeSet id="1671007579797-14" author="User (generated)">
+        <addForeignKeyConstraint baseColumnNames="studying_category_id" baseTableName="courses"
+                                 constraintName="fk3lyt2xvsd8rjrskhrv9f83l9p" onDelete="NO ACTION" onUpdate="NO ACTION"
+                                 referencedColumnNames="id" referencedTableName="categories"/>
+    </changeSet>
+    <changeSet id="1671007579797-15" author="User (generated)">
+        <addForeignKeyConstraint baseColumnNames="category_id" baseTableName="practical_teachers_categories"
+                                 constraintName="fk4ai39vm8fkn4ms6sda992kka" onDelete="NO ACTION" onUpdate="NO ACTION"
+                                 referencedColumnNames="id" referencedTableName="categories"/>
+    </changeSet>
+    <changeSet id="1671007579797-16" author="User (generated)">
+        <addForeignKeyConstraint baseColumnNames="category_id" baseTableName="students_categories"
+                                 constraintName="fk4ca17hos7hmhftmi7ob15m8hu" onDelete="NO ACTION" onUpdate="NO ACTION"
+                                 referencedColumnNames="id" referencedTableName="categories"/>
+    </changeSet>
+    <changeSet id="1671007579797-17" author="User (generated)">
+        <addForeignKeyConstraint baseColumnNames="course_id" baseTableName="students_courses"
+                                 constraintName="fkcc42107lsifo5rjyjlhdu6i6u" onDelete="NO ACTION" onUpdate="NO ACTION"
+                                 referencedColumnNames="id" referencedTableName="courses"/>
+    </changeSet>
+    <changeSet id="1671007579797-18" author="User (generated)">
+        <addForeignKeyConstraint baseColumnNames="practical_teacher_id" baseTableName="practical_teachers_cars"
+                                 constraintName="fki2gvata7gdbrw9nksvvyrmbcw" onDelete="NO ACTION" onUpdate="NO ACTION"
+                                 referencedColumnNames="id" referencedTableName="practical_teachers"/>
+    </changeSet>
+    <changeSet id="1671007579797-19" author="User (generated)">
+        <addForeignKeyConstraint baseColumnNames="practical_teacher_id" baseTableName="courses"
+                                 constraintName="fki80lh5l85o0pi5bj9347n2k1b" onDelete="NO ACTION" onUpdate="NO ACTION"
+                                 referencedColumnNames="id" referencedTableName="practical_teachers"/>
+    </changeSet>
+    <changeSet id="1671007579797-20" author="User (generated)">
+        <addForeignKeyConstraint baseColumnNames="car_id" baseTableName="practical_teachers_cars"
+                                 constraintName="fkl9dyn7bkfw30279ssdedwcbvf" onDelete="NO ACTION" onUpdate="NO ACTION"
+                                 referencedColumnNames="id" referencedTableName="cars"/>
+    </changeSet>
+    <changeSet id="1671007579797-21" author="User (generated)">
+        <addForeignKeyConstraint baseColumnNames="practical_teacher_id" baseTableName="practical_teachers_categories"
+                                 constraintName="fkm4rl5ww1xankq4ln6ln17d4bm" onDelete="NO ACTION" onUpdate="NO ACTION"
+                                 referencedColumnNames="id" referencedTableName="practical_teachers"/>
+    </changeSet>
+    <changeSet id="1671007579797-22" author="User (generated)">
+        <addForeignKeyConstraint baseColumnNames="theory_teacher_id" baseTableName="groups"
+                                 constraintName="fknk63ceu5x80inpwra8na9vw2j" onDelete="NO ACTION" onUpdate="NO ACTION"
+                                 referencedColumnNames="id" referencedTableName="theory_teachers"/>
+    </changeSet>
+    <changeSet id="1671007579797-23" author="User (generated)">
+        <addForeignKeyConstraint baseColumnNames="group_id" baseTableName="courses"
+                                 constraintName="fkqeed8jx354sfrloky6s2iu6wa" onDelete="NO ACTION" onUpdate="NO ACTION"
+                                 referencedColumnNames="id" referencedTableName="groups"/>
+    </changeSet>
+    <changeSet id="1671007579797-24" author="User (generated)">
+        <addForeignKeyConstraint baseColumnNames="student_id" baseTableName="students_courses"
+                                 constraintName="fkr16q8s9m6kr7xupi4fw9iqpgl" onDelete="NO ACTION" onUpdate="NO ACTION"
+                                 referencedColumnNames="id" referencedTableName="students"/>
+    </changeSet>
+</databaseChangeLog>
