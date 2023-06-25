@@ -1,0 +1,44 @@
+.editProfile{
+    color: var(--primary);
+    font-style: italic;
+    text-decoration: underline;
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 1.5;
+    display: block;
+}
+.userIcon{
+    width: 71px;
+    height: 71px;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 10px;
+}
+
+.max-size{
+    max-width: 760px;
+}
+
+.userDataSurname{
+    color: #212529;
+    max-width: 54px;
+    float: left;
+}
+
+.userDataName{
+    color: #212529;
+    margin-left: 37%;
+    float: left;
+}
+
+.userDataInput{
+    background-color: transparent;
+    border: none;
+    color: black;
+    outline: none;
+    font-size: 1em;
+    font-weight: 300;
+    border: 2px solid #F3BD00;
+    border-radius: 8px;
+}

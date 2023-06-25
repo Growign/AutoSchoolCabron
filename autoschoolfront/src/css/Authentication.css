@@ -1,0 +1,137 @@
+.appForm {
+    --bs-bg-opacity: 1;
+    background-color: rgba(var(--bs-dark-rgb),var(--bs-bg-opacity))!important;
+    padding: 50px 10px;
+    overflow: auto;
+    border-radius: 25px;
+}
+
+.pageSwitcher {
+    display: flex;
+    margin-bottom: 10%;
+}
+
+.pageSwitcherItem {
+    background-color: #40434e;
+    color: #9da6b1;
+    padding: 15px 25px;
+    cursor: pointer;
+    font-size: 1.1em;
+    border: none;
+    outline: none;
+    display: inline-block;
+    text-decoration: none;
+}
+
+.pageSwitcherItem.active {
+    background-color: var(--primary);
+    color: white;
+}
+
+.pageSwitcherItem:first-child {
+    border-top-left-radius: 25px;
+    border-bottom-left-radius: 25px;
+}
+.pageSwitcherItem:last-child {
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+}
+
+.formCenter {
+    margin-bottom: 40px;
+}
+
+.formField {
+    margin-bottom: 40px;
+}
+
+.formFieldLabel {
+    display: block;
+    text-transform: uppercase;
+    font-size: 0.9em;
+    color: white;
+}
+.formFieldInput {
+    width: 100%;
+    background-color: transparent;
+    border: none;
+    color: white;
+    outline: none;
+    border-bottom: 1px solid #445366;
+    font-size: 1em;
+    font-weight: 300;
+    padding-bottom: 10px;
+    margin-top: 10px;
+}
+
+.formFieldInput::placeholder {
+    color: #616e7f;
+}
+
+.blank{
+    max-width: 600px;
+}
+
+.formFieldButton {
+    display: block;
+    margin: auto;
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    outline: none;
+    border-radius: 25px;
+    padding: 15px 70px;
+    font-size: 1.1em;
+    font-weight: 500;
+}
+
+.textOr{
+    color:white;
+    margin-top: 1.2rem!important;
+    margin: 0;
+    padding-right: 4px;
+}
+
+.buttonWithText{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.formFieldLink {
+    display: inline-block;
+    margin-top: 1.2rem!important;
+    color: #76b1ff;
+    text-decoration: none;
+}
+
+.formFieldCheckboxLabel {
+    color: #646f7d;
+    font-size: 0.9em;
+}
+
+.formFieldCheckbox {
+    position: relative;
+    top: 1.5px;
+}
+
+.formFieldTermsLink {
+    color: white;
+    border-bottom: 1px solid var(--primary);
+    text-decoration: none;
+    display: inline-block;
+    padding-bottom: 2px;
+    margin-left: 5px;
+}
+
+a:hover{
+    color: rgba(255, 255, 255, 0.75);
+}
+
+option{
+    background-color: rgba(var(--bs-dark-rgb),var(--bs-bg-opacity))!important;
+}
+
+option:hover{
+    background-color: var(--primary);
+}
