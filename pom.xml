@@ -10,8 +10,8 @@
     </parent>
     <groupId>co.suo</groupId>
     <artifactId>AutoSchool</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
-    <packaging>war</packaging>
+    <version>1</version>
+    <packaging>jar</packaging>
     <name>AutoSchool</name>
     <description>AutoSchool</description>
     <properties>
