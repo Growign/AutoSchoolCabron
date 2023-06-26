@@ -4,7 +4,7 @@ RUN apt-get install openjdk-17-jdk -y
 RUN apt-get install maven -y
 
 COPY . .
-RUN mvn clean package -Dmaven.daemon.disable=true
+RUN mvn package -Dmaven.daemon.disable=true
 
 FROM openjdk:17-slim
 EXPOSE 8080
