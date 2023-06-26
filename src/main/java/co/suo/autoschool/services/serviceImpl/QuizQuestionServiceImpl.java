@@ -29,24 +29,21 @@ public class QuizQuestionServiceImpl implements QuizQuestionService {
 	private final ObjectMapper objectMapper;
 
 	private String savePhoto(MultipartFile photo) throws IOException {
-		Resource resource = new FileSystemResource("src/main/resources/static/quizPhotos");
-		Resource tResource = new FileSystemResource("target/classes/static/quizPhotos");
-		try {
-			String photoOriginalName = photo.getOriginalFilename();
-			String photoFolderPath = resource.getFile().getAbsolutePath();
-			File destinationFile = new File(photoFolderPath, photoOriginalName);
-
-			photo.transferTo(destinationFile);
-
-			//TO TARGET:
-			String photoFolderTPath = tResource.getFile().getAbsolutePath();
-			File destinationTFile = new File(photoFolderTPath, photoOriginalName);
-			Files.copy(destinationFile.toPath(), destinationTFile.toPath());
-
-			return photoOriginalName;
-		} catch (IOException e) {
-			return null;
-		}
+		String externalDirectoryPath = "/quizPhotos";
+    		File externalDirectory = new File(externalDirectoryPath);
+   		if (!externalDirectory.exists()) {
+        		externalDirectory.mkdirs();
+    		}
+	   	try {
+	        	String photoOriginalName = photo.getOriginalFilename();
+	        	File destinationFile = new File(externalDirectory, photoOriginalName);
+	
+	        	photo.transferTo(destinationFile);
+	
+	        	return photoOriginalName;
+	    	} catch (IOException e) {
+	        	return null;
+	    	}
 	}
 
 	@Override
