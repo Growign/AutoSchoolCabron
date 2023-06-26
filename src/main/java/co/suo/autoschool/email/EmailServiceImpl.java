@@ -12,7 +12,7 @@ import javax.mail.internet.MimeMessage;
 public class EmailServiceImpl {
 	@Autowired
 	private JavaMailSender mailSender;
-
+ 
 	@Async
 	public void sendEmail(String toEmail, String subject, String activationCode) throws MessagingException {
 		String body = "<!DOCTYPE html>\n" +
@@ -97,7 +97,7 @@ public class EmailServiceImpl {
 				"        <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"100%\" style=\"max-width: 600px;\">\n" +
 				"          <tr>\n" +
 				"            <td align=\"left\" bgcolor=\"#ffffff\" style=\"padding: 36px 24px 0; font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; border-top: 3px solid #d4dadf;\">\n" +
-				"              <h1 style=\"margin: 0; font-size: 32px; font-weight: 700; letter-spacing: -1px; line-height: 48px;\">Confirm Your Email Address</h1>\n" +
+				"              <h1 style=\"margin: 0; font-size: 32px; font-weight: 700; letter-spacing: -1px; line-height: 48px;\">Підтвердіть Вашу реєстрацію</h1>\n" +
 				"            </td>\n" +
 				"          </tr>\n" +
 				"        </table>\n" +
@@ -111,7 +111,7 @@ public class EmailServiceImpl {
 				"          <!-- start copy -->\n" +
 				"          <tr>\n" +
 				"            <td align=\"left\" bgcolor=\"#ffffff\" style=\"padding: 24px; font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; font-size: 16px; line-height: 24px;\">\n" +
-				"              <p style=\"margin: 0;\">Tap the button below to confirm your email address. If you didn't create an account with Carbon, you can safely delete this email.</p>\n" +
+				"              <p style=\"margin: 0;\">Натисніть кнопку нижче, щоб підтвердити свою електронну адресу. Якщо ви не створювали обліковий запис у Carbon, ви можете безпечно видалити цей електронний лист.</p>\n" +
 				"            </td>\n" +
 				"          </tr>\n" +
 				"          <!-- end copy -->\n" +
@@ -123,9 +123,9 @@ public class EmailServiceImpl {
 				"                  <td align=\"center\" bgcolor=\"#ffffff\" style=\"padding: 12px;\">\n" +
 				"                    <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\">\n" +
 				"                      <tr>\n" +
-				"                        <td align=\"center\" bgcolor=\"#1a82e2\" style=\"border-radius: 6px;\">\n" +
+				"                        <td align=\"center\" bgcolor=\"#ffc107\" style=\"border-radius: 6px;\">\n" +
 				"                          <a href=\"http://localhost:8080/activate?activationCode=" + activationCode +
-				"\" target=\"_blank\" style=\"display: inline-block; padding: 16px 36px; font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; font-size: 16px; color: #ffffff; text-decoration: none; border-radius: 6px;\">Link</a>\n" +
+				"\" target=\"_blank\" style=\"display: inline-block; padding: 16px 36px; font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; font-size: 16px; color: #ffffff; text-decoration: none; border-radius: 6px;\">Підтвердити</a>\n" +
 				"                        </td>\n" +
 				"                      </tr>\n" +
 				"                    </table>\n" +
@@ -138,7 +138,7 @@ public class EmailServiceImpl {
 				"          <!-- start copy -->\n" +
 				"          <tr>\n" +
 				"            <td align=\"left\" bgcolor=\"#ffffff\" style=\"padding: 24px; font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; font-size: 16px; line-height: 24px; border-bottom: 3px solid #d4dadf\">\n" +
-				"              <p style=\"margin: 0;\">Cheers,<br> Cabron</p>\n" +
+				"              <p style=\"margin: 0;\">Гарного дня,<br> Cabron</p>\n" +
 				"            </td>\n" +
 				"          </tr>\n" +
 				"          <!-- end copy -->\n" +
@@ -157,4 +157,3 @@ public class EmailServiceImpl {
 		message.setSubject(subject);
 		mailSender.send(message);
 	}
-}
