@@ -38,18 +38,19 @@ public class SecurityConfiguration {
 	@Bean
 	public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 		http
-				.csrf()
+				csrf()
 				.disable()
 				.cors().and()
 				.authorizeHttpRequests()
-				.antMatchers("/", "/index.html", "/static/**", "/*.ico", "/*.json", "/*.png","/*.jpg","/static/quizPhotos/**","quizPhotos/**").permitAll()
+				.antMatchers("/", "/index.html", "/static/**", "/*.ico", "/*.json", "/*.png","/*.jpg","/static/quizPhotos/**").permitAll()
 				.antMatchers("/api/v1/register", "/api/v1/authenticate", "/api/v1/activate", "/api/v1/refreshToken",
 							"/login", "/sign-up","/about","/courses","/mistake","/activate", "/quiz/**","/teachers")
 					.permitAll()
 				.antMatchers(HttpMethod.GET,"/TheoryTeacher","/practicalTeachers").permitAll()
+				.antMatchers("/TheoryTeacher","/practicalTeachers","/car", "/category").permitAll()
 				.antMatchers("/api/v1/user/**", "/profile").hasAnyAuthority(Role.USER.name(), Role.ADMIN.name())
             	.antMatchers(HttpMethod.GET, "/api/v1/check-auth").authenticated()
-				.antMatchers(HttpMethod.POST, "/api/v1/logout").authenticated()
+            	.antMatchers(HttpMethod.POST, "/api/v1/logout").authenticated()
 				.antMatchers("/allUser/**","/TheoryTeacher","/practicalTeachers").hasAuthority(Role.ADMIN.name())
 				.anyRequest()
 					.authenticated()
