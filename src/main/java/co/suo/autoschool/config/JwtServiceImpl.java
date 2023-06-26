@@ -127,6 +127,23 @@ public class JwtServiceImpl {
 		response.addHeader(HttpHeaders.SET_COOKIE, refreshTokenCookie.toString());
 	}
 
+	public void deleteJwtCookies(HttpServletResponse response) {
+		ResponseCookie accessTokenCookie = ResponseCookie.from("accessToken", "")
+				.httpOnly(true)
+				.secure(false)
+				.maxAge(0)
+				.path("/")
+				.build();
+		ResponseCookie refreshTokenCookie = ResponseCookie.from("refreshToken", "")
+				.httpOnly(true)
+				.secure(false)
+				.maxAge(0)
+				.path("/")
+				.build();
+		response.setHeader(HttpHeaders.SET_COOKIE, accessTokenCookie.toString());
+		response.addHeader(HttpHeaders.SET_COOKIE, refreshTokenCookie.toString());
+	}
+
 	public boolean isTokenValid(String token, UserDetails userDetails) {
 		final String username = extractUsername(token);
 		return (username.equals(userDetails.getUsername())) && !isTokenExpired(token);

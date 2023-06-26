@@ -53,6 +53,13 @@ public class AuthenticationController {
 	) {
 		return ResponseEntity.ok(service.authenticate(request, response));
 	}
+	
+	@PostMapping("/logout")
+	public ResponseEntity<?> logout(
+			HttpServletResponse response
+	) {
+		return ResponseEntity.ok(service.logout(response));
+	}
 
 	@GetMapping("/refreshToken")
 	public ResponseEntity<AuthenticationResponse> refreshToken(

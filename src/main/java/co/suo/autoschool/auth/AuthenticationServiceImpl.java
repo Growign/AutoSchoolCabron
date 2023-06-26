@@ -91,6 +91,12 @@ public class AuthenticationServiceImpl implements AuthenticationService {
     }
 
     @Transactional
+    public ResponseEntity<?> logout(HttpServletResponse response) {
+        jwtService.deleteJwtCookies(response);
+        return ResponseEntity.ok(AuthenticationResponse.builder().message("").build());
+    }
+
+    @Transactional
     public AuthenticationResponse refreshToken(HttpServletRequest request, HttpServletResponse response) {
         var refreshToken = jwtService.getRefreshTokenFromCookie(request);
         if (refreshToken != null && jwtService.isTokenGetSign(refreshToken) && refreshTokenRepository.findRefreshTokenByRefreshToken(refreshToken)) {

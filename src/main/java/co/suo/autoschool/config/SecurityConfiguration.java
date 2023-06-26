@@ -49,6 +49,7 @@ public class SecurityConfiguration {
 				.antMatchers(HttpMethod.GET,"/TheoryTeacher","/practicalTeachers").permitAll()
 				.antMatchers("/api/v1/user/**", "/profile").hasAnyAuthority(Role.USER.name(), Role.ADMIN.name())
             	.antMatchers(HttpMethod.GET, "/api/v1/check-auth").authenticated()
+				.antMatchers(HttpMethod.POST, "/api/v1/logout").authenticated()
 				.antMatchers("/allUser/**","/TheoryTeacher","/practicalTeachers").hasAuthority(Role.ADMIN.name())
 				.anyRequest()
 					.authenticated()
