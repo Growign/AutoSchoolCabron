@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class SpringDefaultUrlController {
 	@GetMapping("/login")
 	public String showLoginPage() { return ""; }
+	@GetMapping("/sign-up")
+	public String showSignUpPage() { return ""; }
 	@GetMapping("/profile")
 	public String showProfilePage() { return ""; }
 	@GetMapping("/about")

@@ -12,7 +12,7 @@ import javax.mail.internet.MimeMessage;
 public class EmailServiceImpl {
 	@Autowired
 	private JavaMailSender mailSender;
- 
+
 	@Async
 	public void sendEmail(String toEmail, String subject, String activationCode) throws MessagingException {
 		String body = "<!DOCTYPE html>\n" +
