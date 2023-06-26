@@ -42,7 +42,7 @@ public class SecurityConfiguration {
 				.disable()
 				.cors().and()
 				.authorizeHttpRequests()
-				.antMatchers("/", "/index.html", "/static/**", "/*.ico", "/*.json", "/*.png","/*.jpg").permitAll()
+				.antMatchers("/", "/index.html", "/static/**", "/*.ico", "/*.json", "/*.png","/*.jpg","/static/quizPhotos/**","quizPhotos/**").permitAll()
 				.antMatchers("/api/v1/register", "/api/v1/authenticate", "/api/v1/activate", "/api/v1/refreshToken",
 							"/login", "/sign-up","/about","/courses","/mistake","/activate", "/quiz/**","/teachers")
 					.permitAll()
