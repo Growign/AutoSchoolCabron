@@ -8,7 +8,7 @@ COPY . .
 
 FROM openjdk:17-slim
 EXPOSE 8080
-RUN mvn package -Dmaven.daemon.disable=true
+RUN mvn spring-boot:run
 COPY --from=build /target/AutoSchool-1.jar app.jar
 
 ENTRYPOINT ["java", "-jar", "app.jar"]
