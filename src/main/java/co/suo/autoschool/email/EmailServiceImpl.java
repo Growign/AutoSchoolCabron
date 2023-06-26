@@ -157,3 +157,4 @@ public class EmailServiceImpl {
 		message.setSubject(subject);
 		mailSender.send(message);
 	}
+}
